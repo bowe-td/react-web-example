@@ -1,26 +1,26 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getToken, setToken, logout } from '../services/auth';
+import { getToken, localSetToken, logout } from '../services/auth';
 
 const AuthContext = createContext({});
 
 const AuthProvider = ({ children }) => {
-  const [data, setData] = useState(() => {
-    const token = getToken();
+  const [token, setToken] = useState(() => {
+    const localToken = getToken();
 
-    if (token) {
-      return { token };
+    if (localToken) {
+      return localToken;
     }
 
-    return {};
+    return null;
   });
 
   useEffect(() => {
-    setToken(data.token);
-  }, [data]);
+    localSetToken(token);
+  }, [token]);
 
   return (
-    <AuthContext.Provider value={{ ...data, setData, logout }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ token, setToken, logout }}>{children}</AuthContext.Provider>
   );
 };
 
