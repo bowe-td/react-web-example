@@ -5,10 +5,10 @@ import { useAuth } from '../../providers/AuthProvider';
 
 const Login = () => {
   const history = useHistory();
-  const { setData } = useAuth();
+  const { setToken } = useAuth();
 
   const loginApp = () => {
-    setData({ token: 'asd' });
+    setToken('asdad');
     history.push('/home');
   };
 
