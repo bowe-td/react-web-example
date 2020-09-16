@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getToken, localSetToken, logout } from '../services/auth';
+import { getToken, localSetToken, logout } from 'services/auth';
 
 const AuthContext = createContext({});
 
@@ -16,7 +16,9 @@ const AuthProvider = ({ children }) => {
   });
 
   useEffect(() => {
-    localSetToken(token);
+    if (token) {
+      localSetToken(token);
+    }
   }, [token]);
 
   return (
