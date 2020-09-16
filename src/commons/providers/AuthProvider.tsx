@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { getToken, localSetToken, logout } from '../services/auth';
+import { getToken, localSetToken, logout } from 'commons/services/auth';
 
 const AuthContext = createContext({});
 
@@ -28,7 +28,7 @@ AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-function useAuth() {
+function useAuth(): { token: string } {
   const context = useContext(AuthContext);
 
   if (!context) {

@@ -1,10 +1,13 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Route as ReactDOMRoute, Redirect } from 'react-router-dom';
 import { useAuth } from '../../providers/AuthProvider';
 
-const Route = props => {
+interface Props {
+  isPrivate: Boolean;
+  component: React.ReactNode;
+}
+
+const Route = (props: Props) => {
   const { isPrivate = false, component: Component, ...rest } = props;
   const { token } = useAuth();
 
@@ -25,17 +28,6 @@ const Route = props => {
       }}
     />
   );
-};
-
-Route.defaultProps = {
-  isPrivate: false,
-  token: null,
-};
-
-Route.propTypes = {
-  component: PropTypes.elementType.isRequired,
-  isPrivate: PropTypes.bool,
-  token: PropTypes.string,
 };
 
 export default Route;
