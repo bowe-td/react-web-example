@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Route as ReactDOMRoute, Redirect } from 'react-router-dom';
-import { useAuth } from '../../providers/AuthProvider';
+import { useAuth } from 'providers/AuthProvider';
 
 const Route = props => {
   const { isPrivate = false, component: Component, ...rest } = props;
