@@ -1,10 +1,29 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, {
+  createContext,
+  useState,
+  useContext,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 import { getToken, localSetToken, logout } from 'commons/services/auth';
 
-const AuthContext = createContext({});
+interface Props {
+  children: React.ReactNode;
+}
 
-const AuthProvider = ({ children }) => {
+interface AuthContext {
+  token?: string | null;
+  setToken: Dispatch<SetStateAction<string | null>>;
+  logout?: () => void;
+}
+
+const AuthContext = createContext<AuthContext>({
+  setToken: () => null,
+});
+
+const AuthProvider = (props: Props) => {
+  const { children } = props;
   const [token, setToken] = useState(() => {
     const localToken = getToken();
 
@@ -24,11 +43,7 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-AuthProvider.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-function useAuth(): { token: string } {
+function useAuth(): AuthContext {
   const context = useContext(AuthContext);
 
   if (!context) {

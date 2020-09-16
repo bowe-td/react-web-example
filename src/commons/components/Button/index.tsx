@@ -5,7 +5,7 @@ interface Props {
   onClick: () => void;
 }
 
-const Button = (props: Props): React.ReactNode => {
+const Button = (props: Props) => {
   const { onClick } = props;
 
   return <StyledButton onClick={onClick}>Enviar</StyledButton>;

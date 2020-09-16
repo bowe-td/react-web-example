@@ -3,8 +3,10 @@ import { Route as ReactDOMRoute, Redirect } from 'react-router-dom';
 import { useAuth } from '../../providers/AuthProvider';
 
 interface Props {
-  isPrivate: Boolean;
-  component: React.ReactNode;
+  isPrivate?: boolean;
+  component: React.ComponentType;
+  path: string;
+  exact?: boolean;
 }
 
 const Route = (props: Props) => {
