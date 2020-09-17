@@ -1,10 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import AuthProvider from './AuthProvider';
-import { theme } from 'styles/theme';
+import { theme } from 'commons/styles/theme';
 
-const AppProvider = props => {
+interface Props {
+  children: React.ReactNode;
+}
+
+const AppProvider = (props: Props) => {
   const { children } = props;
 
   return (
@@ -12,10 +15,6 @@ const AppProvider = props => {
       <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </AuthProvider>
   );
-};
-
-AppProvider.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default AppProvider;

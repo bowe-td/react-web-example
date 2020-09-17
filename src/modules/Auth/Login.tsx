@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { Button } from 'components';
-import { useAuth } from 'providers/AuthProvider';
+import { Button } from 'commons/components';
+import { useAuth } from 'commons/providers/AuthProvider';
 
 const Login = () => {
   const history = useHistory();
@@ -21,7 +21,5 @@ const Login = () => {
     </div>
   );
 };
-
-Login.propTypes = {};
 
 export default Login;
