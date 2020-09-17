@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route as ReactDOMRoute, Redirect } from 'react-router-dom';
-import { useAuth } from '../../providers/AuthProvider';
+import { useAuth } from 'providers/AuthProvider';
 
 interface Props {
   isPrivate?: boolean;
