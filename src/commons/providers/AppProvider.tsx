@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import AuthProvider from './AuthProvider';
-import { theme } from 'styles/theme';
+import { theme } from 'commons/styles/theme';
 
 interface Props {
   children: React.ReactNode;

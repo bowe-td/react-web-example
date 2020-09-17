@@ -1,9 +1,6 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
-import { Button } from 'commons/components';
-import { useAuth } from 'commons/providers/AuthProvider';
 
-const Login = () => {
+const ForgotPassword = () => {
   return (
     <div>
       <h1>Login page</h1>
@@ -13,6 +10,4 @@ const Login = () => {
   );
 };
 
-Login.propTypes = {};
-
-export default Login;
+export default ForgotPassword;

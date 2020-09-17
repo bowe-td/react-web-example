@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch } from 'react-router-dom';
 import Route from 'commons/components/Route';
 import Auth from './Auth';
-import Home from './Auth';
+import Home from './Home';
 
 const Routes = () => (
   <Switch>
